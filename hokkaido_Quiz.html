@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>札幌・北海道クイズ</title>
+<style>
+  body { font-family: "ヒラギノ角ゴシック", "Meiryo", sans-serif; background: #f0f8ff; padding: 20px; }
+  h1 { color: #006699; margin-bottom: 25px; }
+  .quiz { margin-bottom: 30px; padding: 15px; background: #e6f2ff; border-radius: 8px; max-width: 600px; }
+  .question { font-weight: bold; margin-bottom: 10px; }
+  .choices button {
+    display: block;
+    margin: 6px 0;
+    padding: 8px 12px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #0077cc;
+    background: #fff;
+    border-radius: 4px;
+    text-align: left;
+  }
+  .choices button:hover { background: #d0eaff; }
+  .answer { margin-top: 10px; padding: 10px; background: #cce6ff; border-radius: 6px; white-space: pre-line; }
+</style>
+</head>
+<body>
 
+<h1>札幌・北海道クイズ</h1>
+
+<div class="quiz" id="quiz1">
+  <div class="question">Q1. 北海道神宮は何時代に建てられたか？</div>
+  <div class="choices">
+    <button data-answer="A">明治時代</button>
+    <button data-answer="B">江戸時代</button>
+    <button data-answer="C">大正時代</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz2">
+  <div class="question">Q2. 北海道では、とうもろこしのことをなんと呼ぶか？</div>
+  <div class="choices">
+    <button data-answer="B">コーン</button>
+    <button data-answer="C">なんばん</button>
+    <button data-answer="A">とうきび</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz3">
+  <div class="question">Q3. 藻岩山（もいわやま）からの眺望は何に選ばれたことがある？</div>
+  <div class="choices">
+    <button data-answer="A">世界遺産</button>
+    <button data-answer="B">日本新三大夜景</button>
+    <button data-answer="C">国立公園指定</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz4">
+  <div class="question">Q4. 赤レンガ庁舎に使われたレンガの数は？</div>
+  <div class="choices">
+    <button data-answer="A">約150万個</button>
+    <button data-answer="B">約200万個</button>
+    <button data-answer="C">約250万個</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz5">
+  <div class="question">Q5. 札幌テレビ塔と東京タワーには共通点があります。それは何？</div>
+  <div class="choices">
+    <button data-answer="B">同じペンキを使っている</button>
+    <button data-answer="A">設計した人物が同じ</button>
+    <button data-answer="C">展望台の高さが同じ</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz6">
+  <div class="question">Q6. 札幌時計台はもともと何のために建てられた建物でしょう？</div>
+  <div class="choices">
+    <button data-answer="C">役所として使用するため</button>
+    <button data-answer="B">時計職人の工房として使うため</button>
+    <button data-answer="A">大学の演武場として使うため</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz7">
+  <div class="question">Q7. 札幌の中心部にある大通公園の全長はおよそどのくらいでしょう？</div>
+  <div class="choices">
+    <button data-answer="B">約500m</button>
+    <button data-answer="A">約1500m</button>
+    <button data-answer="C">約3000m</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<div class="quiz" id="quiz8">
+  <div class="question">Q8. 円山動物園は1951年9月に改名された名称である。もともとの名称は？</div>
+  <div class="choices">
+    <button data-answer="A">円山児童遊園</button>
+    <button data-answer="B">札幌市営動物園</button>
+    <button data-answer="C">札幌円山公園</button>
+  </div>
+  <div class="answer" style="display:none;"></div>
+</div>
+
+<script>
+const quizData = {
+  quiz1: {
+    correct: "A",
+    explanation: "答え：明治時代\n北海道神宮は1869年（明治2年）に明治天皇の命により建てられました。北海道開拓の守護として重要な存在です。"
+  },
+  quiz2: {
+    correct: "A",
+    explanation: "答え：とうきび\n北海道ではとうもろこしのことを『とうきび』と呼びます。ちなみに『なんばん』は、トウガラシを意味する方言です。"
+  },
+  quiz3: {
+    correct: "B",
+    explanation: "答え：日本新三大夜景\n藻岩山からの眺望は日本新三大夜景（他には長崎・稲佐山、神戸・摩耶山）に選ばれています。夜景が特に美しいスポットとして知られています。"
+  },
+  quiz4: {
+    correct: "C",
+    explanation: "答え：約250万個\n赤レンガ庁舎（北海道庁旧本庁舎）には、約250万個ものレンガが使われており、明治時代の貴重な建築物として国の重要文化財にも指定されています。"
+  },
+  quiz5: {
+    correct: "A",
+    explanation: "答え：設計した人物が同じ\n札幌テレビ塔と東京タワーはいずれも構造設計家・内藤多仲氏が設計しました。\n\n実は、内藤氏が手がけた下記の6つのタワーは『タワー6兄弟』と呼ばれています。\n\n☆ 名古屋テレビ塔（現：中部電力MIRAIタワー）\n☆ 通天閣\n☆ 別府タワー\n☆ さっぽろテレビ塔\n☆ 東京タワー\n☆ 博多ポートタワー"
+  },
+  quiz6: {
+    correct: "A",
+    explanation: "答え：大学の演武場として使うため\n札幌時計台は、札幌農学校（現・北海道大学）の演武場（軍事訓練や体育のための講堂）として建てられました。"
+  },
+  quiz7: {
+    correct: "A",
+    explanation: "答え：約1500m\n大通公園は全長約1.5kmで、花壇、噴水、ベンチなどがあり、雪まつりなど多くのイベントも開催される札幌のシンボル的な公園です。"
+  },
+  quiz8: {
+    correct: "A",
+    explanation: "答え：円山児童遊園\n円山動物園は1951年に『円山児童遊園』から現在の名称に改称されました。開園当初は市民の憩いの場として、動物以外にも遊具や公園が整備されていました。"
+  }
+};
+
+document.querySelectorAll(".quiz").forEach(quiz => {
+  const buttons = quiz.querySelectorAll("button");
+  const answerDiv = quiz.querySelector(".answer");
+  const quizId = quiz.id;
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.answer;
+      const correct = quizData[quizId].correct;
+
+      if (selected === correct) {
+        answerDiv.style.color = "green";
+        answerDiv.textContent = "正解！\n" + quizData[quizId].explanation;
+      } else {
+        answerDiv.style.color = "red";
+        answerDiv.textContent = "不正解...\n" + quizData[quizId].explanation;
+      }
+      answerDiv.style.display = "block";
+      button.disabled = true;
+    });
+  });
+});
+</script>
+
+</body>
+</html>
